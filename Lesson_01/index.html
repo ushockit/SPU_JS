@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        // const PI = 3.14;
+        // let a = 10;
+        // // Don`t use
+        // var b = 10;
+
+
+        // Hoisting
+        /*c = 10;
+        var c;
+
+        console.log(c);*/
+
+        // let a;
+        // console.log(a, typeof a);     // undefined
+        // a = a + 2;
+        // console.log(a, typeof a);     // NaN - Not a Number
+        // console.log(1 / 0);           // Infinity
+
+        // let v = 'a';
+        // console.log(typeof v);
+
+        // let a = 10;
+        // let b = 20;
+        //
+        // console.log('a = ' + a + ' b = ' + b);
+        // console.log(`a = ${a} b = ${b}`);
+
+
+        // let isVal = true;
+        // let empty = null;
+
+
+        /**
+         * Модальные окна
+         */
+
+        // alert('Hello world');
+
+        // let value = prompt('Enter your name', 'default value');
+        // console.log(value);
+
+        // let res = confirm('Today is Monday?');
+        // console.log(res);
+
+        // let str = '50';
+        // // let num = +str;
+        // let num = Number(str);
+        //
+        // console.log(str, typeof str);
+        // console.log(num, typeof num);
+
+
+        // let a = '10';
+        // let b = 20;
+        // let res = a + b;        // 1020
+
+        // let a = '10';
+        // let b = 20;
+        // let res = b + a;        // 2010
+
+        // let a = '10';
+        // let b = 10;
+        // console.log(a === b);
+        //
+        // console.log(Boolean(null));
+        // console.log(Boolean(''));
+        // console.log(Boolean(undefined));
+        //
+        // let val;
+        //
+        // if (!val) {
+        //     console.log('undefined');
+        // }
+
+
+        // let arr = [1, 2, 3, 4, 5];
+        // // let arr2 = Array();
+        //
+        // // проход по индексам
+        // for(let idx in arr) {
+        //     console.log(idx);
+        // }
+        //
+        // // проход по значениям
+        // for(let item of arr) {
+        //     console.log(item);
+        // }
+
+        // func(10);
+
+        function func(a, b) {
+            console.log(a, b);
+        }
+
+        let arr = [1, 2, 3, 4, 5]
+
+        // добавление в массив
+        arr.push(10, 20, 30);
+
+        // replace
+        arr.splice(0, 1, 100, 200);
+        // delete
+        arr.splice(0, 1);
+
+        console.log(arr.slice(3, 5));
+
+        arr.forEach(item => {
+            console.log(item);
+        });
+        // arr.forEach(function(item) {
+        //     console.log(item);
+        // });
+
+
+        let idx = arr.findIndex(item => item > 0);
+        console.log(idx);
+
+        let findval = arr.find(item => item === 2000);
+        console.log(findval);
+
+        let s = arr.join(',');
+        console.log(s);
+
+        let res = arr.map(item => item * 10);
+        console.log(res);
+
+        let evenNums = arr.filter(item => item % 2 === 0);
+        console.log(evenNums);
+
+
+
+    </script>
+    <script src="js/script.js"></script>
+</body>
+</html>
