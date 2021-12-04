@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ---------------------------------------------------
+        // const date = new Date();
+
+        // console.log('Day of week: ', date.getDay());
+        // console.log('Day of month: ', date.getDate());
+        // console.log('Month: ', date.getMonth());
+        // console.log('Year: ', date.getFullYear());
+
+        // // date.setDate(32);
+        // console.log(date);
+
+        // console.log(date.toDateString());
+        // console.log(date.toLocaleDateString());
+        // console.log(date.toLocaleString());
+        // console.log(date.toLocaleTimeString());
+        // console.log(date.toString());
+        // console.log(date.toTimeString());
+        // console.log(date.toUTCString());
+        // ---------------------------------------------------
+
+
+        // ---------------------------------------------------
+        // Objects
+        // const obj = {
+        //     name: 'Vasya',
+        //     age: 20,
+        //     'likes birds': true,
+        //     // show: () => {
+        //     //     console.log(this);
+        //     // }
+        //     show() {
+        //         console.log(this);
+        //     }
+        // };
+    
+
+        // console.log(obj);
+        // console.log(obj.name);
+        // console.log(obj['name']);
+        // obj.show();
+
+        // console.log({
+        //     '0f3': {},
+        //     '06k': {}
+        // });
+
+        // const clone = {};
+        // Object.assign(clone, obj);
+        // console.log('Clone',  clone, obj === clone);
+        // ---------------------------------------------------
+
+
+
+        // ---------------------------------------------------
+        // function User(username) {
+        //     this.username = username;
+        //     this.isLoggedIn = false;
+        // }
+
+        // const user = new User('vasya');
+
+
+        // const obj = {
+        //     name: 'Vasya',
+        //     age: 20,
+        //     login: undefined
+        // };
+
+        // const name = obj.name;
+        // const age = obj.age;
+
+        // получение св-в из объекта
+        // const { name, age } = obj;
+
+        // извлекаем св-во и получаем в other остальные св-ва
+        // const { login, ...other } = obj;
+        // console.log('other', other);
+
+
+
+
+        // console.log(Object.values(obj))
+        // console.log(Object.keys(obj))
+        // console.log(Object.entries(obj))
+        // console.log(obj.login?.toLowerCase());
+        // ---------------------------------------------------
+
+        // ---------------------------------------------------
+        // const futureObj = [
+        //     ['banana', 1],
+        //     ['orange', 2],
+        //     ['meat', 4]
+        // ];
+        // let prices = Object.fromEntries(futureObj);
+        // let prices = {};
+        // for(let entry of futureObj) {
+        //     prices[entry[0]] = entry[1];
+        // }
+        //console.log(prices);
+        // ---------------------------------------------------
+
+
+        // ---------------------------------------------------
+        // Symbol
+        // const v1 = Symbol('Vasya');
+        // const v2 = Symbol('Vasya');
+
+        // console.log('Vasya' === 'Vasya');
+        // console.log(v1 === v2);
+        // ---------------------------------------------------
+
+        // ---------------------------------------------------
+        // Iterator
+        // console.log(Symbol.iterator);
+
+        // let range = {
+        //     from: 1,
+        //     to: 5,
+
+        //     [Symbol.iterator]() {
+        //         this.current = this.from;
+        //         return this;
+        //     },
+
+        //     next() {
+        //         if (this.current <= this.to) {
+        //             return { done: false, value: this.current++ };
+        //         } else {
+        //             return { done: true };
+        //         }
+        //     }
+        // };
+
+        // for (let num of range) {
+        //     console.log(num);
+        // }
+        // ---------------------------------------------------
+
+
+        // Набор уникальных значений
+        // const set = new Set([1, 2, 3, 4, 5, 3, 2, 1, 4]);
+        // console.log(set);
+
+        // let a = [1, 2, 3];
+        // let b = [4, 5, 6];
+        // let c = [...a, ...b];
+        // console.log(c);
+
+        // let arr = [1, 4, 3, 2, 1, 5, 6, 7, 9, 10, 20, 30, 10];
+        // let unique = new Set(arr);
+        // arr = [...unique];
+        // console.log(arr);
+
+
+        let student = {
+            name: 'John',
+            age: 30,
+            isAdmin: false,
+            courses: ['html', 'css', 'js'],
+            wife: null
+        };
+
+        console.log(student);
+        const json = JSON.stringify(student);
+        console.log(json);
+        const res = JSON.parse(json);
+        console.log(res);
+
+
+        // Closure(Замыкание)
+        function makeCounter() {
+            let count = 0;
+            return function() {
+                return count++;
+            };
+        }
+
+        // const func = makeCounter();
+
+        // console.log(func());
+        // console.log(func());
+        // console.log(func());
+        // console.log(func());
+        // console.log(func());
+        // console.log(func());
+        // console.log(func());
+        // console.log(func());
+
+        // function makeBrush(color, stroke) {
+        //     let countLines = 0;
+        //     return {
+        //         drawLine: (length) => {
+        //             console.log('Color: ', color);
+        //             console.log('Stroke: ', stroke);
+        //             console.log('-'.repeat(length));                    
+        //             countLines++;
+        //         },
+        //         getCountDrawLines: () => countLines
+        //     };
+        // }
+
+        // const brush1 = makeBrush('blue', '1px');
+        // const brush2 = makeBrush('red', '3px');
+
+
+        // brush1.drawLine(5);
+        // brush1.drawLine(5);
+        // brush1.drawLine(5);
+        // brush1.drawLine(5);
+        // console.log('COunt = ', brush1.getCountDrawLines());
+        // brush2.drawLine(7);
+
+
+        // const delay = 3000;
+        // const timeoutID = setTimeout(() => {
+        //     console.log('Hello world');
+        // }, delay);
+        // // console.log(timeoutID);
+        // clearTimeout(timeoutID);
+
+        // const intervalID = setInterval(() => {
+        //     console.log('Hello');
+        // }, 1000);
+
+
+        // setTimeout(() => {
+        //     clearInterval(intervalID);
+        // }, 5000);
+
+
+        // function demo() {
+        //     console.log(this);
+        // }
+
+        // // вызов функции с передачей нового контекста
+        // demo.call({}, 10, 20);
+        // demo.apply({}, [10, 20]);
+        // demo();
+
+        // const fn = demo.bind({});
+        // fn();
+
+
+
+        // OOP
+
+
+        class Person {
+            // private
+            #firstName = '';
+            #lastName = '';
+
+
+            constructor(firstName, lastName) {
+                // this = {};   (неявно)
+                this.#firstName = firstName;
+                this.#lastName = lastName;
+            }
+
+            getFullName() {
+                return `${this.#lastName} ${this.#firstName}`;
+            }
+
+            get fullName() {
+                return `${this.#lastName} ${this.#firstName}`;
+            }
+        }
+        
+        const person = new Person('Vasya', 'Pupkin');
+        console.log(person.getFullName());
+        console.log(person.fullName);
+
+    </script>
+</body>
+</html>
