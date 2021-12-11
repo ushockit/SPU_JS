@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        class Person {
+            #firstName = '';
+            #lastName = '';
+            #age = 0;
+            constructor(firstName, lastName, age) {
+                this.#firstName = firstName;
+                this.#lastName = lastName;
+                this.#age = age;
+            }
+            toString() {
+                return `${this.#lastName} ${this.#firstName} ${this.#age}`;
+            }
+        }
+
+        class Worker extends Person {
+            #position = '';
+            #salary = 0;
+            constructor(firstName, lastName, age, position, salary) {
+                // Вызов конструктора базового класса
+                super(firstName, lastName, age);
+                this.#position = position;
+                this.#salary = salary;
+            }
+            toString() {
+                return super.toString() + ` $${this.#salary} ${this.#position}`;
+            }
+        }
+
+        const worker = new Worker('Vasya', 'Pupkin', 25, 'Developer', 3000);
+        console.log(worker);
+        console.log(worker.toString());
+
+
+        console.log(worker instanceof Person);
+    </script>
+</body>
+</html>

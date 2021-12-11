@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #messages {
+            width: 100px;
+            height: 100px;
+        }
+        #coords {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            font-size: 20px;
+        }
+        .block {
+            width: 150px;
+            height: 150px;
+            border: 1px solid rgba(34, 34, 34, .3);
+        }
+        .blocks {
+            padding: 10px;
+            border: 1px solid purple;
+        }
+        .first {
+            background: red;
+        }
+        .second {
+            position: relative;
+            top: -75px;
+            left: 75px;
+            background: green;
+        }
+        .third {
+            background: blue;
+            position: relative;
+            left: 150px;
+            top: -150px;
+        }
+    </style>
+</head>
+<body>
+    <div id="coords">
+        <span id="x-coord">0</span> x <span id="y-coord">0</span>
+    </div>
+    <div id="messages"></div>
+
+    <input class="first-name-input" />
+
+    <div class="blocks">
+        <div class="block first"></div>
+        <div class="block second"></div>
+        <div class="block third"></div>
+    </div>
+
+    <a href="https://google.com" class="google-link">Google</a>
+
+    <script>
+        (function () {
+            console.log(document);
+            const messagesBlock = document.getElementById('messages');
+            console.log(messagesBlock);
+            messagesBlock.style.border = '1px solid black';
+
+            // const messagesBySelector = document.querySelector('#messages');
+            //
+            // console.log(messagesBySelector);
+            //
+            // const divBlocks = document.querySelectorAll('div');
+            // console.log(divBlocks);
+
+            const UI = {
+                coords: {
+                    x: document.getElementById('x-coord'),
+                    y: document.getElementById('y-coord')
+                },
+                firstNameInput: document.querySelector('.first-name-input'),
+                blocks: document.querySelector('.blocks'),
+                googleLink: document.querySelector('.google-link')
+            };
+
+            messagesBlock.onclick = (ev) => {
+                console.log(ev);
+            };
+
+            console.log(UI);
+            document.onmousemove = (ev) => {
+                UI.coords.x.innerText = String(ev.x);
+                UI.coords.y.innerText = String(ev.y);
+            };
+
+            UI.firstNameInput.onchange = function(ev) {
+                console.log(this.value);
+            };
+
+            UI.firstNameInput.onkeydown = function (ev) {
+                console.log(ev);
+                if (!Number(ev.key) && ev.key !== 'Backspace') {
+                    ev.preventDefault();
+                }
+            };
+
+
+            // -= ВСПЛЫТИЕ СОБЫТИЙ =-
+            // UI.blocks.onclick = function() {
+            //     console.log('Blocks click');
+            // };
+            //
+            // document.querySelector('.first').onclick = (ev) => {
+            //     // остановка всплытия
+            //     ev.stopPropagation();
+            //     console.log('First block click');
+            // };
+            // document.querySelector('.second').onclick = (ev) => {
+            //     console.log('Second block click');
+            // };
+            // document.querySelector('.third').onclick = (ev) => {
+            //     console.log('Third block click');
+            // };
+            //
+            // // document.onclick = (ev) => {
+            // //     console.log('Document click');
+            // // };
+            // document.addEventListener('click', (ev) => {
+            //     console.log('Document click');
+            // });
+
+
+            // -= ПОГРУЖЕНИЕ СОБЫТИЙ =-
+            // document.addEventListener('click', (ev) => {
+            //     console.log('Document click');
+            // }, true);
+            // UI.blocks.addEventListener('click', (ev) => {
+            //     console.log('Blocks click');
+            // }, true);
+            // document.querySelector('.first').addEventListener('click', (ev) => {
+            //     // остановка всплытия
+            //     ev.stopPropagation();
+            //     console.log('First block click');
+            // }, true);
+
+
+            UI.googleLink.onclick = function (ev) {
+                ev.preventDefault();
+                console.log(this.classList);
+                // location.href = this.href;
+            };
+
+            setTimeout(() => {
+                const newBlock = document.createElement('div');
+                newBlock.classList.add('block');
+                UI.blocks.appendChild(newBlock);
+
+                setTimeout(() => {
+                    newBlock.remove();
+                }, 1000);
+            }, 2000);
+        }())
+    </script>
+</body>
+</html>
